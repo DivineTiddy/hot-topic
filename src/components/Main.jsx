@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Text from "../ui/Text";
-import { useEffect, useState } from "react";
 import Card from "../ui/Card";
 import Loader from "../ui/Loader";
+import propTypes from "prop-types";
 
 const Layout = styled.div`
   width: 100%;
@@ -44,30 +44,7 @@ const Layout = styled.div`
     border-radius: 5px;
   }
 `;
-const Main = () => {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  console.log(data);
-
-  useEffect(function () {
-    try {
-      setIsLoading(true);
-
-      async function getNews() {
-        const response = await fetch(
-          `https://newsapi.org/v2/top-headlines?country=us&apiKey=94803a79c2d04953a02ec0ad01ee097a`
-        );
-        setIsLoading(false);
-
-        const result = await response.json();
-        setData(result.articles);
-
-      }
-      getNews();
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
+const Main = ({ data, isLoading }) => {
   return (
     <Layout>
       <Text as="h2">Latest News</Text>
@@ -75,9 +52,9 @@ const Main = () => {
         <Loader />
       ) : (
         <div className="cardsContainer">
-          {data.map((items) => (
+          {data.map((items , index) => (
             <Card
-              key={items.title}
+              key={index}
               author={items.author}
               publishedAt={items.publishedAt}
               title={items.title}
@@ -89,6 +66,10 @@ const Main = () => {
       )}
     </Layout>
   );
+};
+Main.propTypes = {
+  data: propTypes.array,
+  isLoading: propTypes.bool,
 };
 
 export default Main;

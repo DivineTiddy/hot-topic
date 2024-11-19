@@ -1,55 +1,49 @@
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import propTypes from "prop-types";
 import styled from "styled-components";
 import Text from "../ui/Text";
-
+import SliderCard from "../ui/SliderCard";
 const Layout = styled.div`
   width: 100%;
-  height: 258px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-top: 48px;
-  @media (min-width: 768px) {
-    height: 355px;
-  }
-  .hero-bg {
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    width: 100%;
+  height: 300px;
+  overflow: hidden;
+  margin-top: 30px;
+  .sliderContainer {
     height: 200px;
-    border-radius: 8px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-image: url("src/assets/image/Rectangle 1.png");
-    @media (min-width: 768px) {
-      height: 289px;
-    }
-    @media (min-width: 1100px) {
-      height: 400px;
-    }
-  }
-  span {
-    display: flex;
-    gap: 30px;
   }
 `;
-const Hero = () => {
+
+function Hero({ data }) {
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    rtl: false,
+  };
   return (
     <Layout>
       <Text as="h1">Hot Topics</Text>
-      <div className="hero-bg">
-        <Text as="h3">
-          Massa tortor nibh nulla condimentum imperdiet scelerisque...
-        </Text>
-        <span>
-          <Text as="h4">2 Hours Agoi</Text>
-          <Text as="h4">CNN Indonesia</Text>
-        </span>
-      </div>
+      <Slider className="sliderContainer" {...settings}>
+        {data.map((items, index) => (
+          <SliderCard
+            key={index}
+            author={items.author}
+            publishedAt={items.publishedAt}
+            title={items.title}
+            urlToImage={items.urlToImage}
+            url={items.url}
+          />
+        ))}
+      </Slider>
     </Layout>
   );
+}
+Hero.propTypes = {
+  data: propTypes.array,
 };
-
 export default Hero;

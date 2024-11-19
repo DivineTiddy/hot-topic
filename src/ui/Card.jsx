@@ -21,7 +21,7 @@ const Layout = styled.a`
 const Card = ({ url, author, title, urlToImage, publishedAt }) => {
   return (
     <>
-      {author === null ? (
+      {author === null || urlToImage === null ? (
         ""
       ) : (
         <Layout href={url}>
