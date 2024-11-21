@@ -14,30 +14,30 @@ const HomePage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(function () {
-    try {
-      setIsLoading(true);
-
-      async function getNews() {
-        const response = await fetch(
-          `https://newsapi.org/v2/top-headlines?country=us&apiKey=94803a79c2d04953a02ec0ad01ee097a`
-        );
-        setIsLoading(false);
-
-        const result = await response.json();
-        setData(result.articles);
-
+    fetch(
+      "https://newsapi.org/v2/top-headlines?country=us&apiKey=94803a79c2d04953a02ec0ad01ee097a",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
       }
-      getNews();
-    } catch (error) {
-      console.log(error);
-    }
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => console.log(data))
+      .catch((error) => console.error("Error:", error));
   }, []);
   return (
     <Layout>
       <Nav />
-      <Hero data={data}/>
-      <Main isLoading={isLoading}  data={data}/>
-      <Footer/>
+      <Hero data={data} />
+      <Main isLoading={isLoading} data={data} />
+      <Footer />
     </Layout>
   );
 };
