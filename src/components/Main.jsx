@@ -50,7 +50,7 @@ const Main = ({ data, isLoading }) => {
       <Text as="h2">Latest News</Text>
       {/* {isLoading ? (
         <Loader />
-      ) : ( */}
+      ) : (
         <div className="cardsContainer">
           {data.map((items , index) => (
             <Card
@@ -63,7 +63,7 @@ const Main = ({ data, isLoading }) => {
             />
           ))}
         </div>
-      {/* )} */}
+      )} */}
     </Layout>
   );
 };
