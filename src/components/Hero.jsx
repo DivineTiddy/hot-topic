@@ -7,11 +7,14 @@ import Text from "../ui/Text";
 import SliderCard from "../ui/SliderCard";
 const Layout = styled.div`
   width: 100%;
-  height: 300px;
+  height: auto;
   overflow: hidden;
   margin-top: 30px;
   .sliderContainer {
     height: 200px;
+    @media (min-width: 768px) {
+      height: 355px;
+    }
   }
 `;
 
@@ -24,6 +27,7 @@ function Hero({ data }) {
     autoplay: true,
     autoplaySpeed: 2000,
     rtl: false,
+  
   };
   return (
     <Layout>
