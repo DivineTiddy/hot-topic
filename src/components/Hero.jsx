@@ -33,7 +33,7 @@ function Hero({ data }) {
     <Layout>
       <Text as="h1">Hot Topics</Text>
       <Slider className="sliderContainer" {...settings}>
-        {data.map((items, index) => (
+        {/* {data.map((items, index) => (
           <SliderCard
             key={index}
             author={items.author}
@@ -42,7 +42,7 @@ function Hero({ data }) {
             urlToImage={items.urlToImage}
             url={items.url}
           />
-        ))}
+        ))} */}
       </Slider>
     </Layout>
   );
