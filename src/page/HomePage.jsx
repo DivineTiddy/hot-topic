@@ -12,7 +12,6 @@ const Layout = styled.div`
 const HomePage = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  console.log(data)
 
   useEffect(function () {
     try {
