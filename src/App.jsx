@@ -13,6 +13,7 @@ const Layout = styled.div`
     position: fixed;
     left: 90%;
     top: 90%;
+    z-index: 10;
   }
 `;
 const App = () => {

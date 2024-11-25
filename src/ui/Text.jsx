@@ -7,8 +7,8 @@ const Text = styled.p`
       font-weight: bold;
       font-size: 16px;
       line-height: 21px;
-      color: var(--white-color);
-      background-color: var(--black-color);
+      color: var(--background-color);
+      background-color: var(--text-color);
       width: 40px;
       border-radius: 4px;
       font-family: "Playfair Display", serif;
@@ -20,7 +20,7 @@ const Text = styled.p`
       font-weight: bold;
       font-size: 16px;
       line-height: 21px;
-      color: var(--black-color);
+      color: var(--text-color);
       background-color: var(--white-color);
       width: 40px;
       font-family: "Playfair Display", serif;
@@ -31,7 +31,7 @@ const Text = styled.p`
       font-weight: bold;
       font-size: 36px;
       line-height: 42px;
-      color: var(--black-color);
+      color: var(--text-color);
       font-family: "Roboto", sans-serif;
     `}
     ${(props) =>
@@ -40,7 +40,7 @@ const Text = styled.p`
       font-weight: normal;
       font-size: 24px;
       line-height: 28px;
-      color: var(--black-color);
+      color: var(--text-color);
       font-family: "Roboto", sans-serif;
     `}
     ${(props) =>
@@ -82,7 +82,7 @@ const Text = styled.p`
       font-size: 16px;
       line-height: 21px;
       font-family: "Playfair Display", serif;
-      color: var(--black-color);
+      color: var(--text-color);
       &:hover{
         color: blue;
       }
