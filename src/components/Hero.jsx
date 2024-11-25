@@ -27,22 +27,20 @@ function Hero({ data }) {
     autoplay: true,
     autoplaySpeed: 2000,
     rtl: false,
-  
   };
   return (
     <Layout>
       <Text as="h1">Hot Topics</Text>
       <Slider className="sliderContainer" {...settings}>
-        {/* {data.map((items, index) => (
+        {data.map((items, index) => (
           <SliderCard
             key={index}
-            author={items.author}
-            publishedAt={items.publishedAt}
+            publishedAt={items.pubDate}
             title={items.title}
-            urlToImage={items.urlToImage}
+            urlToImage={items.image_url}
             url={items.url}
           />
-        ))} */}
+        ))}
       </Slider>
     </Layout>
   );

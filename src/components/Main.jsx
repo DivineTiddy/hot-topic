@@ -48,22 +48,21 @@ const Main = ({ data, isLoading }) => {
   return (
     <Layout>
       <Text as="h2">Latest News</Text>
-      {/* {isLoading ? (
+      {isLoading ? (
         <Loader />
       ) : (
         <div className="cardsContainer">
           {data.map((items , index) => (
             <Card
               key={index}
-              author={items.author}
-              publishedAt={items.publishedAt}
+              publishedAt={items.pubDate}
               title={items.title}
-              urlToImage={items.urlToImage}
-              url={items.url}
+              urlToImage={items.image_url}
+              url={items.link}
             />
           ))}
         </div>
-      )} */}
+      )}
     </Layout>
   );
 };
