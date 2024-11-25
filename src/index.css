@@ -6,7 +6,17 @@ body{
  
 }
 :root{
-  --black-color:#000000;
-  --white-color:#FFFFFF;
+  --text-color:#000000;
+  --background-color:#FFFFFF;
   --white-20:#949494;
+}
+
+/* Dark mode variables */
+.dark-mode {
+  --background-color: black;
+  --text-color: white;
+}
+.switch{
+  background-color: var(--background-color);
+  color: var(--text-color);
 }

@@ -18,15 +18,47 @@ const Layout = styled.div`
   }
 `;
 
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "none" }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "none" }}
+      onClick={onClick}
+    />
+  );
+}
 function Hero({ data }) {
   const settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
     rtl: false,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive:[
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      },
+    ]
   };
   return (
     <Layout>
@@ -47,5 +79,15 @@ function Hero({ data }) {
 }
 Hero.propTypes = {
   data: propTypes.array,
+};
+SampleNextArrow.propTypes = {
+  className: propTypes.string,
+  style: propTypes.object,
+  onClick: propTypes.func,
+};
+SamplePrevArrow.propTypes = {
+  className: propTypes.string,
+  style: propTypes.object,
+  onClick: propTypes.func,
 };
 export default Hero;

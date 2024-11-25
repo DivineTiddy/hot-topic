@@ -9,9 +9,11 @@ const Layout = styled.footer`
 `;
 
 const Footer = () => {
-  return <Layout>
-    <Text type="footer">Copyright 2021 News Portal</Text>
-  </Layout>;
+  return (
+    <Layout>
+      <Text type="footer">Copyright 2021 News Portal</Text>
+    </Layout>
+  );
 };
 
 export default Footer;

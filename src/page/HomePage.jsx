@@ -25,7 +25,6 @@ const HomePage = () => {
         setIsLoading(false);
 
         const result = await response.json();
-        console.log(result);
         if (result.status === "success") {
           setData(result.results);
         }
