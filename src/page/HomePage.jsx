@@ -12,6 +12,7 @@ const Layout = styled.div`
 const HomePage = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  console.log(data)
 
   useEffect(function () {
     try {
@@ -19,7 +20,8 @@ const HomePage = () => {
 
       async function getNews() {
         const response = await fetch(
-          `https://newsdata.io/api/1/latest?apikey=pub_60266c3bf2a9cc3d29fcbe69d400ee113398a&country=us`
+          
+          `https://newsdata.io/api/1/latest?apikey=pub_60266c3bf2a9cc3d29fcbe69d400ee113398a`
         );
         setIsLoading(false);
 
