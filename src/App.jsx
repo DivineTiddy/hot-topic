@@ -11,7 +11,7 @@ const Layout = styled.div`
   justify-content: center;
   button{
     position: fixed;
-    left: 90%;
+    left: 85%;
     top: 90%;
     z-index: 10;
   }
