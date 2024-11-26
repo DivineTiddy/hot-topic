@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Text from "../ui/Text";
-import HamBurger from "../assets/icon/HamBurger";
-import SearchIcon from "../assets/icon/SearchIcon";
+
 
 const Container = styled.div`
   width: 100%;
@@ -29,10 +28,7 @@ const Nav = () => {
         <Text type="news">News</Text>
         <Text type="portal">portal</Text>
       </span>
-      <span className="iconSpan">
-        <SearchIcon />
-        <HamBurger />
-      </span>
+     
     </Container>
   );
 };

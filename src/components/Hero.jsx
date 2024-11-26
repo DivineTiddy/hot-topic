@@ -5,6 +5,7 @@ import propTypes from "prop-types";
 import styled from "styled-components";
 import Text from "../ui/Text";
 import SliderCard from "../ui/SliderCard";
+import Loader from "../ui/Loader";
 const Layout = styled.div`
   width: 100%;
   height: auto;
@@ -39,7 +40,7 @@ function SamplePrevArrow(props) {
     />
   );
 }
-function Hero({ data }) {
+function Hero({ data , isLoading}) {
   const settings = {
     dots: false,
     infinite: true,
@@ -63,7 +64,8 @@ function Hero({ data }) {
   return (
     <Layout>
       <Text as="h1">Hot Topics</Text>
-      <Slider className="sliderContainer" {...settings}>
+      {
+        isLoading ? <Loader/> : <Slider className="sliderContainer" {...settings}>
         {data.map((items, index) => (
           <SliderCard
             key={index}
@@ -74,11 +76,13 @@ function Hero({ data }) {
           />
         ))}
       </Slider>
+      }
     </Layout>
   );
 }
 Hero.propTypes = {
   data: propTypes.array,
+  isLoading:propTypes.bool
 };
 SampleNextArrow.propTypes = {
   className: propTypes.string,

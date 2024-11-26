@@ -37,7 +37,7 @@ const HomePage = () => {
   return (
     <Layout>
       <Nav />
-      <Hero data={data} />
+      <Hero data={data} isLoading={isLoading} />
       <Main isLoading={isLoading} data={data} />
       <Footer />
     </Layout>
